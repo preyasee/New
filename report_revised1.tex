@@ -1,9 +1,11 @@
 \documentclass[a4paper,oneside]{report}
+ \usepackage{booktabs}
+ \usepackage{longtable}
  \usepackage{floatrow}
  \usepackage[T1]{fontenc}
  \usepackage[utf8]{inputenc}
  \usepackage{lmodern}
- \usepackage[left=1cm,right=1cm,top=0.5cm]{geometry}
+ \usepackage[left=0.2cm,right=0.8cm,top=0.4cm]{geometry}
  \usepackage{adjustbox}
  \usepackage{graphicx}
  \usepackage{subcaption}
@@ -30,29 +32,9 @@
  \null\hfill
  \end{subfigure}&
  
-\begin{subfigure}[c]{0.5\textwidth}
+\begin{subfigure}[c]{0.4\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- topTrades &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &             Curve \\
-\hline
-   5Y7Y10Y &   -4.84 &    -5.21 &     -4.14 &  -0.06 & -0.19 &      0.23 &  -0.20 &    -1.06 &      Neutral &    Weak Steepener \\
-   2Y3Y5Y &  -17.26 &   -17.26 &     -9.68 &   0.85 &  1.43 &      0.83 &  -1.27 &     2.73 &    Weak Bear &    Mild Steepener \\
-   2Y3Y7Y &  -51.78 &   -51.78 &    -32.97 &   1.74 &  3.27 &      1.69 &  -1.26 &     2.96 &    Weak Bear &  Strong Steepener \\
-   2Y3Y10Y &  -82.26 &   -82.26 &    -53.29 &   2.88 &  4.88 &      2.55 &  -1.45 &     3.04 &    Weak Bear &  Strong Steepener \\
-   10Y10Y &  329.85 &   258.14 &    337.30 &    NaN & -0.10 &      6.27 &  -0.10 &    -0.02 &  Strong Bull &    Mild Flattener \\
-   10Y5Y &  331.94 &   259.73 &    339.29 &    NaN &  0.11 &      6.33 &  -0.06 &     0.02 &  Strong Bull &    Mild Flattener \\
-   20Y10Y &  316.39 &   246.49 &    321.85 &    NaN & -0.38 &      6.03 &  -0.05 &    -0.06 &  Strong Bull &    Mild Flattener \\
-   10Y2Y &  332.33 &   260.02 &    339.82 &    NaN &  0.50 &      6.41 &   0.04 &     0.08 &  Strong Bull &    Mild Flattener \\
-   5Y7Y10Y &    4.04 &     1.00 &      4.83 &   0.25 & -0.25 &      0.54 &  -0.88 &     0.00 &    Mild Bull &    Weak Steepener \\
-   2Y5Y10Y &   22.01 &    16.74 &     31.60 &   1.26 & -0.93 &      2.20 &  -1.93 &     0.15 &    Mild Bull &    Mild Steepener \\
-   3Y5Y7Y &   17.62 &    13.89 &     19.89 &   0.08 & -1.05 &      0.99 &  -1.37 &    -0.98 &    Mild Bull &    Weak Steepener \\
-   3Y5Y10Y &  -12.86 &   -13.80 &     -1.04 &   1.22 &  0.55 &      1.48 &  -1.96 &     1.19 &    Weak Bull &  Strong Steepener \\
-   10Y20Y30Y &   -1.05 &    -1.17 &     -0.23 &   0.09 & -0.16 &      0.10 &   0.33 &    -0.71 &    Weak Bear &           Neutral \\
-   10Y15Y30Y &   -1.02 &    -1.37 &     -0.58 &   0.10 & -0.20 &      0.10 &   1.78 &    -1.09 &    Weak Bear &    Weak Flattener \\
-   10Y30Y &   42.66 &    27.64 &     46.96 &  -2.93 & -1.87 &      1.56 &   2.17 &    -3.08 &      Neutral &  Strong Flattener \\
-\hline
-\end{tabular}
+\input{images/USD_regression.txt}
 \end{adjustbox}
 \end{subfigure}\\
  
@@ -60,23 +42,11 @@
 
 \begin{subfigure}[c]{0.5\textwidth}
  \includesvg[svgpath = images/, width=\textwidth]{switchUSD}
- \null\hfill
  \end{subfigure}&
  
 \begin{subfigure}[c]{0.5\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- switch &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &             Curve \\
-\hline
-   2Y5Y &   87.01 &    68.70 &     92.59 &  -0.77 & -4.38 &      2.34 &  -0.68 &    -2.20 &  Strong Bull &           Neutral \\
-   2Y7Y &  121.52 &    93.02 &    127.30 &  -1.66 & -6.23 &      3.01 &  -0.17 &    -2.62 &  Strong Bull &    Weak Flattener \\
-   3Y5Y &   52.14 &    39.42 &     54.47 &  -0.81 & -2.90 &      1.41 &  -0.19 &    -2.63 &  Strong Bull &    Weak Flattener \\
-   5Y7Y &   34.52 &    23.17 &     34.71 &  -0.89 & -1.85 &      0.97 &   1.12 &    -2.83 &    Mild Bull &  Strong Flattener \\
-   2Y3Y &   34.87 &    28.33 &     38.12 &   0.04 & -1.48 &      1.04 &  -1.27 &    -1.38 &  Strong Bull &           Neutral \\
- 10Y30Y &   42.66 &    27.64 &     46.96 &  -2.93 & -1.87 &      1.56 &   2.17 &    -3.08 &      Neutral &  Strong Flattener \\
-\hline
-\end{tabular}
+\input{images/USD-switch.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
@@ -87,26 +57,7 @@
  
  \begin{subfigure}[c]{0.5\textwidth}
  \begin{adjustbox}{max width=\textwidth}
- \begin{tabular}{lrrrrrrrrll}
-\hline
-       fly &    Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &   Duration &             Curve \\
-\hline
-   5Y7Y10Y &  -4.84 &    -5.21 &     -4.14 &  -0.06 & -0.19 &      0.23 &  -0.20 &    -1.06 &    Neutral &    Weak Steepener \\
-    2Y3Y5Y & -17.26 &   -17.26 &     -9.68 &   0.85 &  1.43 &      0.83 &  -1.27 &     2.73 &  Weak Bear &    Mild Steepener \\
-    2Y3Y7Y & -51.78 &   -51.78 &    -32.97 &   1.74 &  3.27 &      1.69 &  -1.26 &     2.96 &  Weak Bear &  Strong Steepener \\
-   2Y3Y10Y & -82.26 &   -82.26 &    -53.29 &   2.88 &  4.88 &      2.55 &  -1.45 &     3.04 &  Weak Bear &  Strong Steepener \\
- 10Y15Y30Y &   5.19 &     3.51 &      5.49 &   0.39 & -0.33 &      0.21 &   0.68 &     0.25 &  Weak Bull &    Weak Flattener \\
-  5Y10Y30Y &  18.98 &    10.02 &     22.31 &   0.82 & -1.60 &      1.12 &  -0.59 &    -0.70 &  Mild Bull &    Weak Flattener \\
-  7Y10Y30Y &  -1.67 &    -3.02 &     -1.10 &   0.07 & -0.49 &      0.32 &   0.20 &    -1.32 &    Neutral &    Weak Flattener \\
-  5Y10Y30Y &  -8.31 &   -10.39 &     -7.31 &   0.13 & -0.89 &      0.45 &  -0.10 &    -1.68 &    Neutral &           Neutral \\
-   5Y7Y10Y &   4.04 &     1.00 &      4.83 &   0.25 & -0.25 &      0.54 &  -0.88 &     0.00 &  Mild Bull &    Weak Steepener \\
-   2Y5Y10Y &  22.01 &    16.74 &     31.60 &   1.26 & -0.93 &      2.20 &  -1.93 &     0.15 &  Mild Bull &    Mild Steepener \\
-    3Y5Y7Y &  17.62 &    13.89 &     19.89 &   0.08 & -1.05 &      0.99 &  -1.37 &    -0.98 &  Mild Bull &    Weak Steepener \\
-   3Y5Y10Y & -12.86 &   -13.80 &     -1.04 &   1.22 &  0.55 &      1.48 &  -1.96 &     1.19 &  Weak Bull &  Strong Steepener \\
- 10Y20Y30Y &  -1.05 &    -1.17 &     -0.23 &   0.09 & -0.16 &      0.10 &   0.33 &    -0.71 &  Weak Bear &           Neutral \\
- 10Y15Y30Y &  -1.02 &    -1.37 &     -0.58 &   0.10 & -0.20 &      0.10 &   1.78 &    -1.09 &  Weak Bear &    Weak Flattener \\
-\hline
-\end{tabular}
+\input{images/USD-fly.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
@@ -137,30 +88,9 @@
  \null\hfill
  \end{subfigure}&
  
-\begin{subfigure}[c]{0.5\textwidth}
+\begin{subfigure}[c]{0.4\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- topTrades &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &             Curve \\
-\hline
-   2Y3Y10Y &  -97.29 &   -97.51 &    -70.83 &  -1.05 &  1.02 &      1.86 &  -1.22 &    -0.01 &    Mild Bear &    Mild Steepener \\
-   2Y3Y5Y &  -18.75 &   -20.10 &    -12.48 &  -0.10 & -0.32 &      0.86 &  -0.17 &    -0.49 &    Mild Bear &    Weak Steepener \\
-   2Y3Y7Y &  -54.11 &   -54.65 &    -37.55 &  -0.75 & -0.45 &      1.30 &  -0.47 &    -0.93 &    Mild Bear &    Mild Steepener \\
-   2Y3Y7Y &  -15.22 &   -15.35 &    -12.42 &   0.23 &  0.02 &      0.21 &  -2.75 &     1.17 &    Weak Bear &           Neutral \\
-   10Y5Y &  365.83 &   307.53 &    372.66 &    NaN &  0.32 &      4.85 &  -0.57 &     0.07 &  Strong Bull &    Weak Flattener \\
-   20Y10Y &  284.82 &   246.61 &    287.89 &    NaN & -0.82 &      4.18 &   0.03 &    -0.20 &  Strong Bull &    Weak Flattener \\
-   10Y10Y &  352.29 &   294.09 &    358.64 &    NaN & -0.94 &      4.59 &  -0.64 &    -0.21 &  Strong Bull &    Weak Flattener \\
-   5Y10Y &   78.54 &    57.14 &     78.54 &   0.95 & -1.34 &      1.33 &   1.60 &    -0.29 &    Weak Bull &    Mild Flattener \\
-   2Y5Y7Y &  -26.52 &   -26.52 &    -20.19 &  -0.13 &  0.04 &      0.45 &  -1.44 &    -0.19 &      Neutral &    Weak Steepener \\
-   3Y5Y7Y &  -20.59 &   -20.59 &    -15.29 &  -0.19 &  0.04 &      0.42 &  -1.06 &    -0.37 &      Neutral &           Neutral \\
-   10Y15Y30Y &   25.15 &    19.74 &     27.06 &   0.87 & -0.38 &      0.71 &  -0.86 &     0.70 &    Weak Bull &    Weak Steepener \\
-   1Y &   97.19 &    82.75 &    100.98 &  -1.13 & -0.34 &      1.64 &  -0.97 &    -0.89 &    Mild Bull &    Mild Steepener \\
-   5Y30Y &  133.24 &   108.50 &    133.32 &  -0.38 & -4.28 &      1.70 &   2.03 &    -2.74 &      Neutral &  Strong Flattener \\
-   5Y30Y &  130.59 &   106.12 &    130.73 &  -0.43 & -4.35 &      1.72 &   2.08 &    -2.79 &      Neutral &  Strong Flattener \\
-   10Y30Y &   54.70 &    49.76 &     59.71 &  -1.33 & -2.93 &      1.31 &   1.02 &    -3.26 &    Mild Bear &    Weak Flattener \\
-   10Y30Y &   65.46 &    59.70 &     68.25 &  -1.17 & -2.79 &      1.20 &   0.96 &    -3.31 &    Weak Bear &    Weak Flattener \\
-\hline
-\end{tabular}
+\input{images/CAD_regression.txt}
 \end{adjustbox}
 \end{subfigure}\\
  
@@ -173,20 +103,7 @@
  
 \begin{subfigure}[c]{0.5\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- switch &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &   Duration &             Curve \\
-\hline
-  5Y10Y &   78.54 &    57.14 &     78.54 &   0.95 & -1.34 &      1.33 &   1.60 &    -0.29 &  Weak Bull &    Mild Flattener \\
-  5Y10Y &   68.51 &    48.25 &     68.51 &   0.78 & -1.63 &      1.26 &   2.01 &    -0.68 &  Weak Bull &    Mild Flattener \\
-   3Y5Y &   10.43 &     0.84 &     12.95 &   0.79 &  0.39 &      1.27 &  -0.29 &     0.93 &  Mild Bull &    Mild Flattener \\
-   5Y7Y &   30.60 &    19.85 &     30.60 &   0.57 &  0.00 &      0.61 &   1.07 &     0.93 &  Weak Bull &    Mild Flattener \\
-  5Y30Y &  133.24 &   108.50 &    133.32 &  -0.38 & -4.28 &      1.70 &   2.03 &    -2.74 &    Neutral &  Strong Flattener \\
-  5Y30Y &  130.59 &   106.12 &    130.73 &  -0.43 & -4.35 &      1.72 &   2.08 &    -2.79 &    Neutral &  Strong Flattener \\
- 10Y30Y &   54.70 &    49.76 &     59.71 &  -1.33 & -2.93 &      1.31 &   1.02 &    -3.26 &  Mild Bear &    Weak Flattener \\
- 10Y30Y &   65.46 &    59.70 &     68.25 &  -1.17 & -2.79 &      1.20 &   0.96 &    -3.31 &  Weak Bear &    Weak Flattener \\
-\hline
-\end{tabular}
+\input{images/CAD-switch.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
@@ -197,36 +114,13 @@
  
  \begin{subfigure}[c]{0.5\textwidth}
  \begin{adjustbox}{max width=\textwidth}
- \begin{tabular}{lrrrrrrrrll}
-\hline
-       fly &    Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &           Curve \\
-\hline
-   2Y3Y10Y & -97.29 &   -97.51 &    -70.83 &  -1.05 &  1.02 &      1.86 &  -1.22 &    -0.01 &    Mild Bear &  Mild Steepener \\
-    2Y3Y5Y & -18.75 &   -20.10 &    -12.48 &  -0.10 & -0.32 &      0.86 &  -0.17 &    -0.49 &    Mild Bear &  Weak Steepener \\
-    2Y3Y7Y & -54.11 &   -54.65 &    -37.55 &  -0.75 & -0.45 &      1.30 &  -0.47 &    -0.93 &    Mild Bear &  Mild Steepener \\
-    2Y3Y7Y & -15.22 &   -15.35 &    -12.42 &   0.23 &  0.02 &      0.21 &  -2.75 &     1.17 &    Weak Bear &         Neutral \\
-  7Y10Y30Y &  -0.57 &    -4.90 &      0.28 &   0.49 & -0.17 &      0.58 &   1.55 &     0.55 &    Weak Bull &         Neutral \\
-    3Y5Y7Y &  -3.88 &    -6.30 &      2.90 &   0.41 &  0.85 &      1.37 &  -1.23 &     0.92 &  Strong Bull &         Neutral \\
-    2Y5Y7Y &   8.87 &     0.49 &     17.75 &   1.37 &  1.51 &      2.11 &  -1.45 &     1.37 &  Strong Bull &         Neutral \\
-  5Y10Y30Y &  23.84 &     2.45 &     27.14 &   2.29 &  1.59 &      2.01 &   0.39 &     1.93 &    Mild Bull &         Neutral \\
-    2Y5Y7Y & -26.52 &   -26.52 &    -20.19 &  -0.13 &  0.04 &      0.45 &  -1.44 &    -0.19 &      Neutral &  Weak Steepener \\
-    3Y5Y7Y & -20.59 &   -20.59 &    -15.29 &  -0.19 &  0.04 &      0.42 &  -1.06 &    -0.37 &      Neutral &         Neutral \\
- 10Y15Y30Y &  25.15 &    19.74 &     27.06 &   0.87 & -0.38 &      0.71 &  -0.86 &     0.70 &    Weak Bull &  Weak Steepener \\
-   3Y5Y10Y & -34.72 &   -34.72 &    -28.04 &  -0.08 &  0.81 &      0.65 &  -1.79 &     1.12 &      Neutral &         Neutral \\
- 10Y20Y30Y &  52.50 &    46.50 &     53.00 &   0.02 & -2.35 &      0.42 &  -1.00 &    -5.60 &      Neutral &         Neutral \\
-   5Y7Y10Y &  -4.28 &    -5.48 &     -3.75 &   0.16 &  0.71 &      0.15 &  -3.11 &     5.85 &      Neutral &         Neutral \\
-\hline
-\end{tabular}
+\input{images/CAD-fly.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
- 
- 
 \end{tabular}
- \caption{Plots of Principle of components}\label{fig:bubble plots}
- \end{figure} 
- 
- 
+\end{figure} 
+
  
  
  
@@ -251,30 +145,9 @@
  \null\hfill 
  \end{subfigure}&
  
-\begin{subfigure}[c]{0.5\textwidth}
+\begin{subfigure}[c]{0.4\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- topTrades &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &           Curve \\
-\hline
- 10Y15Y30Y &    5.03 &     0.80 &      5.21 &  -0.08 &  0.18 &      0.23 &  -1.07 &     0.42 &      Neutral &         Neutral \\
-    2Y3Y7Y &  -37.39 &   -40.97 &    -23.60 &   1.72 & -4.28 &      1.44 &   2.46 &    -1.78 &    Mild Bear &  Mild Steepener \\
- 10Y20Y30Y &    3.27 &     0.26 &      3.28 &   0.01 & -0.42 &      0.22 &   1.29 &    -1.88 &    Weak Bear &  Weak Steepener \\
-   2Y3Y10Y &  -60.45 &   -66.25 &    -39.23 &   2.37 &  2.45 &      2.07 &   2.54 &     2.33 &  Strong Bear &  Mild Steepener \\
-  5Y10Y30Y &   -6.86 &   -15.32 &     -5.20 &   0.36 & -0.32 &      0.70 &  -1.53 &     0.06 &    Weak Bull &  Weak Flattener \\
-    20Y10Y &  236.93 &   203.34 &    247.15 &    NaN & -0.47 &      5.04 &  -1.13 &    -0.09 &  Strong Bull &  Weak Flattener \\
-    10Y10Y &  272.51 &   215.87 &    279.53 &    NaN & -0.52 &      5.15 &  -0.83 &    -0.10 &  Strong Bull &         Neutral \\
-      2Y7Y &   84.98 &    58.53 &     91.09 &  -1.32 &  1.72 &      2.79 &  -1.70 &     0.14 &  Strong Bull &  Weak Flattener \\
-        4Y &  150.65 &   116.31 &    152.94 &   3.90 & -3.66 &      3.17 &   0.57 &     0.08 &  Strong Bull &  Weak Steepener \\
-      2Y3Y &  209.15 &   157.35 &    213.33 &    NaN &  5.32 &      5.12 &  -0.25 &     1.04 &  Strong Bull &         Neutral \\
-   3Y5Y10Y &  -11.43 &   -12.84 &     -5.35 &  -1.36 &  0.38 &      0.87 &   1.31 &    -1.13 &      Neutral &  Weak Steepener \\
-      2Y3Y &   23.80 &    16.80 &     25.06 &   0.20 & -1.28 &      0.83 &  -0.72 &    -1.30 &  Strong Bull &         Neutral \\
-    10Y30Y &   24.28 &    24.28 &     32.50 &  -1.79 & -1.89 &      1.04 &  -1.15 &    -3.53 &      Neutral &  Weak Flattener \\
-    10Y30Y &   20.59 &    20.59 &     29.59 &  -1.85 & -1.92 &      1.05 &  -1.09 &    -3.58 &      Neutral &  Weak Flattener \\
-    2Y3Y5Y &  -14.08 &   -14.28 &    -11.31 &  -0.35 & -1.58 &      0.29 &  -1.18 &    -6.61 &    Weak Bear &         Neutral \\
-   2Y7Y10Y &  -18.19 &   -18.19 &    -14.49 &  -1.08 &  4.00 &      0.33 &  -2.15 &     8.72 &    Weak Bear &  Weak Flattener \\
-\hline
-\end{tabular}
+\input{images/GBP_regression.txt}
 \end{adjustbox}
 \end{subfigure}\\
  
@@ -287,19 +160,7 @@
  
 \begin{subfigure}[c]{0.5\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- switch &    Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &           Curve \\
-\hline
-   2Y7Y &  84.98 &    58.53 &     91.09 &  -1.32 &  1.72 &      2.79 &  -1.70 &     0.14 &  Strong Bull &  Weak Flattener \\
-   3Y7Y &  61.19 &    41.44 &     66.03 &  -1.52 &  3.00 &      2.06 &  -2.02 &     0.72 &  Strong Bull &  Weak Flattener \\
-  5Y10Y &  47.84 &    31.33 &     52.07 &  -0.40 & -2.05 &      1.46 &  -2.40 &    -1.68 &  Strong Bull &  Mild Flattener \\
-   2Y5Y &  60.21 &    41.90 &     64.30 &  -1.57 & -2.95 &      2.11 &  -1.40 &    -2.14 &  Strong Bull &         Neutral \\
-   2Y3Y &  23.80 &    16.80 &     25.06 &   0.20 & -1.28 &      0.83 &  -0.72 &    -1.30 &  Strong Bull &         Neutral \\
- 10Y30Y &  24.28 &    24.28 &     32.50 &  -1.79 & -1.89 &      1.04 &  -1.15 &    -3.53 &      Neutral &  Weak Flattener \\
- 10Y30Y &  20.59 &    20.59 &     29.59 &  -1.85 & -1.92 &      1.05 &  -1.09 &    -3.58 &      Neutral &  Weak Flattener \\
-\hline
-\end{tabular}
+\input{images/GBP-switch.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
@@ -310,46 +171,16 @@
  
  \begin{subfigure}[c]{0.5\textwidth}
  \begin{adjustbox}{max width=\textwidth}
- \begin{tabular}{lrrrrrrrrll}
-\hline
-       fly &    Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &           Curve \\
-\hline
- 10Y15Y30Y &   5.03 &     0.80 &      5.21 &  -0.08 &  0.18 &      0.23 &  -1.07 &     0.42 &      Neutral &         Neutral \\
-    2Y3Y7Y & -37.39 &   -40.97 &    -23.60 &   1.72 & -4.28 &      1.44 &   2.46 &    -1.78 &    Mild Bear &  Mild Steepener \\
- 10Y20Y30Y &   3.27 &     0.26 &      3.28 &   0.01 & -0.42 &      0.22 &   1.29 &    -1.88 &    Weak Bear &  Weak Steepener \\
-   2Y3Y10Y & -60.45 &   -66.25 &    -39.23 &   2.37 &  2.45 &      2.07 &   2.54 &     2.33 &  Strong Bear &  Mild Steepener \\
-  5Y10Y30Y &  -6.86 &   -15.32 &     -5.20 &   0.36 & -0.32 &      0.70 &  -1.53 &     0.06 &    Weak Bull &  Weak Flattener \\
-  5Y10Y30Y &  23.56 &     0.30 &     26.86 &   1.38 & -0.16 &      1.78 &  -1.29 &     0.68 &    Mild Bull &  Weak Flattener \\
-   2Y7Y10Y &  61.92 &    42.40 &     65.80 &  -0.67 &  8.45 &      2.21 &  -1.37 &     3.52 &  Strong Bull &         Neutral \\
- 10Y20Y30Y &  26.10 &    19.99 &     26.46 &  -0.47 & -1.47 &      0.41 &  -0.05 &    -4.76 &    Weak Bull &         Neutral \\
-   3Y5Y10Y & -11.43 &   -12.84 &     -5.35 &  -1.36 &  0.38 &      0.87 &   1.31 &    -1.13 &      Neutral &  Weak Steepener \\
-   2Y5Y10Y &  12.37 &     9.14 &     18.08 &  -1.17 & -0.90 &      1.24 &   0.44 &    -1.67 &    Mild Bull &  Weak Steepener \\
- 10Y15Y30Y &  15.12 &     1.94 &     15.52 &   0.54 &  0.97 &      0.66 &  -0.47 &     2.30 &    Weak Bull &  Weak Steepener \\
-  7Y10Y30Y &  -1.22 &   -16.32 &      0.43 &   1.13 & -4.84 &      1.25 &  -0.41 &    -2.95 &    Weak Bull &         Neutral \\
-    2Y3Y5Y & -14.08 &   -14.28 &    -11.31 &  -0.35 & -1.58 &      0.29 &  -1.18 &    -6.61 &    Weak Bear &         Neutral \\
-   2Y7Y10Y & -18.19 &   -18.19 &    -14.49 &  -1.08 &  4.00 &      0.33 &  -2.15 &     8.72 &    Weak Bear &  Weak Flattener \\
-   2Y5Y10Y & -30.11 &   -30.11 &    -23.51 &  -2.80 & -3.15 &      0.54 &  -2.46 &   -11.08 &      Neutral &  Weak Flattener \\
-   2Y3Y10Y & -22.90 &   -23.00 &    -18.58 &  -1.32 & -2.73 &      0.34 &  -2.63 &   -11.76 &    Weak Bear &  Weak Flattener \\
-\hline
-\end{tabular}
+\input{images/GBP-fly.txt}
 \end{adjustbox}
  \end{subfigure}\\
- 
- 
+
  
 \end{tabular}
- \caption{Plots of Principle of components}\label{fig:bubble plots}
  \end{figure}  
  
  
  
- 
- 
- 
-%-------------------------------------------------------------------------------- 
- 
- 
-
 
 
 %EUR 
@@ -372,30 +203,9 @@
  \null\hfill
  \end{subfigure}&
  
-\begin{subfigure}[c]{0.5\textwidth}
+\begin{subfigure}[c]{0.4\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- topTrades &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &             Curve \\
-\hline
-   2Y3Y10Y &  -83.44 &   -92.83 &    -32.38 &  -1.03 &  1.07 &      3.44 &   1.26 &     0.01 &  Strong Bear &           Neutral \\
-    2Y3Y7Y &  -49.00 &   -55.01 &    -17.33 &  -0.92 & -0.03 &      2.31 &   1.08 &    -0.41 &  Strong Bear &           Neutral \\
-    2Y3Y5Y &   -1.76 &    -2.05 &     -0.40 &  -0.10 &  0.24 &      0.21 &  -3.61 &     0.66 &    Weak Bear &           Neutral \\
-    2Y3Y7Y &   -2.57 &    -2.63 &     -0.90 &  -0.08 &  0.45 &      0.21 &  -3.81 &     1.75 &    Weak Bear &    Weak Steepener \\
-     10Y5Y &  218.79 &    95.75 &    240.89 &    NaN &  0.16 &      6.86 &  -2.40 &     0.02 &  Strong Bull &           Neutral \\
-    10Y10Y &  211.19 &    94.07 &    230.85 &    NaN & -0.52 &      6.61 &  -2.16 &    -0.08 &  Strong Bull &    Weak Flattener \\
-    20Y10Y &  171.65 &    80.44 &    186.40 &    NaN & -0.49 &      6.05 &  -1.32 &    -0.08 &  Strong Bull &    Weak Flattener \\
-      5Y7Y &   29.18 &    10.36 &     33.25 &   0.40 & -0.27 &      1.22 &  -1.85 &     0.11 &  Strong Bull &           Neutral \\
-      2Y3Y &    2.59 &    -0.62 &      4.66 &  -0.27 &  0.19 &      0.39 &  -3.92 &    -0.20 &    Mild Bull &           Neutral \\
- 10Y15Y30Y &   16.14 &     1.44 &     18.68 &   0.65 & -0.28 &      0.76 &  -3.92 &     0.48 &    Weak Bull &    Weak Steepener \\
-   3Y5Y10Y &   -2.71 &    -4.10 &     -0.50 &  -0.02 &  0.47 &      0.60 &   0.54 &     0.76 &    Weak Bull &    Weak Steepener \\
-      3Y7Y &   58.46 &    20.02 &     66.61 &   1.24 &  0.98 &      2.72 &  -1.57 &     0.82 &  Strong Bull &           Neutral \\
-    2Y3Y5Y &  -19.82 &   -21.76 &     -6.47 &  -0.52 & -0.31 &      1.21 &   0.19 &    -0.68 &  Strong Bear &           Neutral \\
- 10Y20Y30Y &    2.04 &    -1.13 &      2.60 &  -0.04 & -0.62 &      0.33 &  -2.11 &    -2.03 &    Mild Bear &           Neutral \\
- 10Y15Y30Y &    2.11 &    -0.54 &      2.78 &  -0.10 & -0.64 &      0.33 &  -2.63 &    -2.25 &    Mild Bear &           Neutral \\
-    10Y30Y &   12.05 &     8.25 &     20.28 &  -2.13 & -3.06 &      1.50 &   0.60 &    -3.46 &    Weak Bear &  Strong Flattener \\
-\hline
-\end{tabular}
+\input{images/EUR_regression.txt}
 \end{adjustbox}
 \end{subfigure}\\
  
@@ -409,24 +219,7 @@
  
 \begin{subfigure}[c]{0.5\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- switch &     Lvl &  Lvl Low &  Lvl High &  Carry &   Roll &  DailyVol &  Z PCA &  p-score &     Duration &             Curve \\
-\hline
-   5Y7Y &   29.18 &    10.36 &     33.25 &   0.40 &  -0.27 &      1.22 &  -1.85 &     0.11 &  Strong Bull &           Neutral \\
-  5Y10Y &   63.61 &    25.35 &     71.08 &   0.51 &  -1.38 &      2.39 &  -1.71 &    -0.36 &  Strong Bull &           Neutral \\
-  7Y10Y &   34.44 &    14.99 &     37.82 &   0.10 &  -1.10 &      1.18 &  -1.55 &    -0.84 &  Strong Bull &    Weak Flattener \\
-  5Y30Y &  109.88 &    53.01 &    119.10 &  -0.77 &  -3.73 &      3.45 &  -1.64 &    -1.30 &  Strong Bull &    Weak Flattener \\
-   2Y3Y &    2.59 &    -0.62 &      4.66 &  -0.27 &   0.19 &      0.39 &  -3.92 &    -0.20 &    Mild Bull &           Neutral \\
-   3Y7Y &   58.46 &    20.02 &     66.61 &   1.24 &   0.98 &      2.72 &  -1.57 &     0.82 &  Strong Bull &           Neutral \\
-   2Y7Y &   67.93 &    22.69 &     78.22 &   1.56 &   1.93 &      3.15 &  -1.91 &     1.11 &  Strong Bull &           Neutral \\
-   3Y5Y &   29.29 &     9.17 &     33.36 &   0.84 &   1.25 &      1.60 &  -1.25 &     1.31 &  Strong Bull &           Neutral \\
- 10Y30Y &   12.05 &     8.25 &     20.28 &  -2.13 &  -3.06 &      1.50 &   0.60 &    -3.46 &    Weak Bear &  Strong Flattener \\
-  7Y30Y &   16.48 &    11.53 &     26.92 &  -3.37 &  -6.20 &      1.96 &   0.87 &    -4.89 &    Weak Bear &  Strong Flattener \\
-  5Y10Y &   11.22 &     1.99 &     16.61 &  -1.87 &  -5.11 &      1.42 &   0.09 &    -4.91 &      Neutral &  Strong Flattener \\
-  5Y30Y &   13.65 &     5.08 &     30.97 &  -5.13 & -10.58 &      3.02 &   0.70 &    -5.20 &    Weak Bear &  Strong Flattener \\
-\hline
-\end{tabular}
+\input{images/EUR-switch.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
@@ -437,35 +230,11 @@
  
  \begin{subfigure}[c]{0.5\textwidth}
  \begin{adjustbox}{max width=\textwidth}
- \begin{tabular}{lrrrrrrrrll}
-\hline
-       fly &    Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &           Curve \\
-\hline
-   2Y3Y10Y & -83.44 &   -92.83 &    -32.38 &  -1.03 &  1.07 &      3.44 &   1.26 &     0.01 &  Strong Bear &         Neutral \\
-    2Y3Y7Y & -49.00 &   -55.01 &    -17.33 &  -0.92 & -0.03 &      2.31 &   1.08 &    -0.41 &  Strong Bear &         Neutral \\
-    2Y3Y5Y &  -1.76 &    -2.05 &     -0.40 &  -0.10 &  0.24 &      0.21 &  -3.61 &     0.66 &    Weak Bear &         Neutral \\
-    2Y3Y7Y &  -2.57 &    -2.63 &     -0.90 &  -0.08 &  0.45 &      0.21 &  -3.81 &     1.75 &    Weak Bear &  Weak Steepener \\
-   5Y7Y10Y &  -2.23 &    -2.49 &     -1.40 &   0.02 &  0.08 &      0.15 &  -1.22 &     0.67 &      Neutral &  Weak Flattener \\
- 10Y20Y30Y &  39.84 &    19.51 &     42.39 &  -0.13 & -1.78 &      0.94 &  -3.46 &    -2.03 &    Mild Bull &  Weak Flattener \\
-   5Y7Y30Y &  -2.20 &    -4.66 &     -1.09 &  -0.16 & -0.78 &      0.46 &  -0.45 &    -2.06 &      Neutral &  Weak Flattener \\
-  5Y10Y30Y &  -2.07 &    -6.96 &      0.62 &  -0.37 & -1.83 &      0.79 &   0.04 &    -2.78 &      Neutral &  Weak Flattener \\
- 10Y15Y30Y &  16.14 &     1.44 &     18.68 &   0.65 & -0.28 &      0.76 &  -3.92 &     0.48 &    Weak Bull &  Weak Steepener \\
-   3Y5Y10Y &  -2.71 &    -4.10 &     -0.50 &  -0.02 &  0.47 &      0.60 &   0.54 &     0.76 &    Weak Bull &  Weak Steepener \\
-    3Y5Y7Y &  -1.76 &    -2.75 &     -0.35 &   0.05 &  0.47 &      0.41 &   0.79 &     1.26 &    Weak Bull &  Weak Steepener \\
-  5Y10Y30Y &  17.35 &    -6.84 &     23.06 &   1.78 &  0.97 &      2.05 &  -1.24 &     1.35 &    Mild Bull &  Weak Steepener \\
-    2Y3Y5Y & -19.82 &   -21.76 &     -6.47 &  -0.52 & -0.31 &      1.21 &   0.19 &    -0.68 &  Strong Bear &         Neutral \\
- 10Y20Y30Y &   2.04 &    -1.13 &      2.60 &  -0.04 & -0.62 &      0.33 &  -2.11 &    -2.03 &    Mild Bear &         Neutral \\
- 10Y15Y30Y &   2.11 &    -0.54 &      2.78 &  -0.10 & -0.64 &      0.33 &  -2.63 &    -2.25 &    Mild Bear &         Neutral \\
-  7Y10Y30Y &   0.45 &    -2.12 &      2.04 &  -0.22 & -1.09 &      0.38 &   0.59 &    -3.48 &      Neutral &         Neutral \\
-\hline
-\end{tabular}
+\input{images/EUR-fly.txt}
 \end{adjustbox}
- \end{subfigure}\\
- 
- 
- 
+\end{subfigure}\\
+  
 \end{tabular}
- \caption{Plots of Principle of components}\label{fig:bubble plots}
  \end{figure}  
  
  
@@ -492,30 +261,9 @@
  \null\hfill
  \end{subfigure}&
  
-\begin{subfigure}[c]{0.5\textwidth}
+\begin{subfigure}[c]{0.4\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
-topTrades &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &             Curve \\
-\hline
-  3Y5Y10Y &  -24.25 &   -25.62 &    -18.50 &  -0.11 &  0.47 &      0.51 &   3.44 &     0.70 &    Mild Bear &    Weak Steepener \\
-   2Y3Y5Y &   -2.83 &    -2.98 &     -2.58 &  -0.03 &  0.09 &      0.08 &   0.36 &     0.73 &      Neutral &           Neutral \\
-   3Y5Y7Y &   -4.27 &    -4.75 &     -4.16 &   0.02 &  0.09 &      0.09 &  -1.12 &     1.16 &      Neutral &    Weak Steepener \\
-  5Y7Y30Y &  -92.38 &   -96.75 &    -82.25 &  -0.02 &  1.50 &      1.17 &  -1.27 &     1.25 &      Neutral &  Strong Steepener \\
-   20Y10Y &  205.98 &   172.16 &    215.49 &    NaN & -0.37 &      3.38 &  -3.09 &    -0.11 &  Strong Bull &    Weak Flattener \\
-     2Y7Y &  -33.53 &   -45.62 &    -30.13 &  -0.01 & -0.18 &      0.88 &  -4.61 &    -0.22 &    Mild Bull &           Neutral \\
-    5Y30Y &  120.12 &   103.25 &    125.62 &   0.58 & -1.13 &      1.69 &  -2.66 &    -0.33 &  Strong Bull &    Mild Flattener \\
-    7Y10Y &   20.88 &    16.25 &     22.75 &   0.22 &  0.01 &      0.48 &  -4.51 &     0.47 &  Strong Bull &    Weak Flattener \\
-  3Y7Y10Y &   -9.25 &    -9.91 &     -8.88 &   0.01 &  0.00 &      0.14 &  -2.78 &     0.05 &    Weak Bull &    Mild Steepener \\
- 5Y10Y30Y &  -10.07 &   -13.18 &     -8.80 &   0.04 & -0.10 &      0.32 &  -4.65 &    -0.18 &    Mild Bull &    Weak Steepener \\
-     3Y5Y &   -4.22 &    -7.39 &     -3.09 &   0.09 & -0.04 &      0.27 &  -4.83 &     0.21 &    Mild Bull &           Neutral \\
- 7Y10Y30Y &   -3.61 &    -5.26 &     -3.04 &   0.03 &  0.02 &      0.17 &  -4.03 &     0.28 &    Weak Bull &           Neutral \\
-  2Y3Y10Y &  -42.62 &   -49.00 &    -31.62 &  -0.74 & -0.39 &      1.43 &   4.94 &    -0.79 &  Strong Bear &           Neutral \\
-   2Y3Y7Y &  -21.75 &   -26.25 &    -15.38 &  -0.52 & -0.38 &      0.98 &   4.98 &    -0.92 &  Strong Bear &           Neutral \\
-   2Y3Y5Y &   -7.88 &    -9.62 &     -5.62 &  -0.24 & -0.20 &      0.39 &   4.82 &    -1.12 &  Strong Bear &           Neutral \\
-   10Y30Y &   48.16 &    40.99 &     53.86 &  -0.64 & -2.33 &      1.61 &   4.50 &    -1.84 &    Mild Bear &    Mild Flattener \\
-\hline
-\end{tabular}
+\input{images/JPY_regression.txt}
 \end{adjustbox}
 \end{subfigure}\\
  
@@ -528,23 +276,7 @@ topTrades &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA
  
 \begin{subfigure}[c]{0.5\textwidth}
 \begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lrrrrrrrrll}
-\hline
- switch &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &           Curve \\
-\hline
-   2Y7Y &  -33.53 &   -45.62 &    -30.13 &  -0.01 & -0.18 &      0.88 &  -4.61 &    -0.22 &    Mild Bull &         Neutral \\
-  5Y30Y &  120.12 &   103.25 &    125.62 &   0.58 & -1.13 &      1.69 &  -2.66 &    -0.33 &  Strong Bull &  Mild Flattener \\
-  7Y10Y &   20.88 &    16.25 &     22.75 &   0.22 &  0.01 &      0.48 &  -4.51 &     0.47 &  Strong Bull &  Weak Flattener \\
-  5Y10Y &   34.75 &    25.88 &     39.38 &   0.50 &  0.19 &      1.07 &  -4.85 &     0.64 &  Strong Bull &         Neutral \\
-   3Y5Y &   -4.22 &    -7.39 &     -3.09 &   0.09 & -0.04 &      0.27 &  -4.83 &     0.21 &    Mild Bull &         Neutral \\
-   2Y5Y &  -21.20 &   -27.73 &    -18.77 &   0.07 &  0.28 &      0.56 &  -4.86 &     0.61 &    Mild Bull &         Neutral \\
-   5Y7Y &   13.88 &     9.62 &     16.62 &   0.28 &  0.18 &      0.61 &  -4.94 &     0.76 &  Strong Bull &         Neutral \\
-   3Y7Y &   24.38 &    17.00 &     30.38 &   0.66 &  0.84 &      1.29 &  -4.99 &     1.17 &  Strong Bull &         Neutral \\
- 10Y30Y &   48.16 &    40.99 &     53.86 &  -0.64 & -2.33 &      1.61 &   4.50 &    -1.84 &    Mild Bear &  Mild Flattener \\
-  7Y30Y &   57.70 &    48.69 &     65.31 &  -0.86 & -3.26 &      2.12 &   4.19 &    -1.95 &    Mild Bear &  Mild Flattener \\
-  5Y30Y &   50.19 &    37.25 &     59.02 &  -1.23 & -4.87 &      2.68 &   3.85 &    -2.28 &    Mild Bear &  Mild Flattener \\
-\hline
-\end{tabular}
+\input{images/JPY-switch.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
@@ -555,33 +287,33 @@ topTrades &     Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA
  
  \begin{subfigure}[c]{0.5\textwidth}
  \begin{adjustbox}{max width=\textwidth}
- \begin{tabular}{lrrrrrrrrll}
-\hline
-       fly &    Lvl &  Lvl Low &  Lvl High &  Carry &  Roll &  DailyVol &  Z PCA &  p-score &     Duration &             Curve \\
-\hline
-   3Y5Y10Y & -24.25 &   -25.62 &    -18.50 &  -0.11 &  0.47 &      0.51 &   3.44 &     0.70 &    Mild Bear &    Weak Steepener \\
-    2Y3Y5Y &  -2.83 &    -2.98 &     -2.58 &  -0.03 &  0.09 &      0.08 &   0.36 &     0.73 &      Neutral &           Neutral \\
-    3Y5Y7Y &  -4.27 &    -4.75 &     -4.16 &   0.02 &  0.09 &      0.09 &  -1.12 &     1.16 &      Neutral &    Weak Steepener \\
-   5Y7Y30Y & -92.38 &   -96.75 &    -82.25 &  -0.02 &  1.50 &      1.17 &  -1.27 &     1.25 &      Neutral &  Strong Steepener \\
- 10Y20Y30Y &  38.62 &    35.25 &     40.88 &   0.47 & -0.06 &      0.51 &  -0.04 &     0.79 &    Weak Bull &    Mild Flattener \\
-   3Y7Y10Y &  -9.25 &    -9.91 &     -8.88 &   0.01 &  0.00 &      0.14 &  -2.78 &     0.05 &    Weak Bull &    Mild Steepener \\
-  5Y10Y30Y & -10.07 &   -13.18 &     -8.80 &   0.04 & -0.10 &      0.32 &  -4.65 &    -0.18 &    Mild Bull &    Weak Steepener \\
-  7Y10Y30Y &  -3.61 &    -5.26 &     -3.04 &   0.03 &  0.02 &      0.17 &  -4.03 &     0.28 &    Weak Bull &           Neutral \\
-   5Y7Y30Y &  -6.41 &    -7.98 &     -5.66 &   0.02 & -0.12 &      0.19 &  -4.53 &    -0.55 &    Mild Bull &    Weak Steepener \\
-   2Y3Y10Y & -42.62 &   -49.00 &    -31.62 &  -0.74 & -0.39 &      1.43 &   4.94 &    -0.79 &  Strong Bear &           Neutral \\
-    2Y3Y7Y & -21.75 &   -26.25 &    -15.38 &  -0.52 & -0.38 &      0.98 &   4.98 &    -0.92 &  Strong Bear &           Neutral \\
-    2Y3Y5Y &  -7.88 &    -9.62 &     -5.62 &  -0.24 & -0.20 &      0.39 &   4.82 &    -1.12 &  Strong Bear &           Neutral \\
-\hline
-\end{tabular}
+\input{images/JPY-fly.txt}
 \end{adjustbox}
  \end{subfigure}\\
  
- 
- 
 \end{tabular}
- \caption{Plots of Principle of components}\label{fig:bubble plots}
- \end{figure}  
+\end{figure}  
 
 
+
+%Weighted Switches and Flies
+%-------------------------------------------------------------------------------------------------
+
+\begin{figure}[htbp]
+\begin{tabular}[c]{cc}
+\begin{subfigure}[c]{0.45\textwidth}
+\begin{adjustbox}{max width=\textwidth}
+\input{images/Weightedswitch.txt}
+\end{adjustbox}
+\end{subfigure}&
+
+\begin{subfigure}[c]{0.45\textwidth}
+\begin{adjustbox}{max width=\textwidth}
+\input{images/Weightedfly.txt}
+\end{adjustbox}
+\end{subfigure}\\
+
+\end{tabular}
+\end{figure}  
 
 \end{document}
