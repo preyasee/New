@@ -60,3 +60,18 @@ for i,row in enumerate(vv1.values):
     P.append(p)
 vv1['P']=P    
 #########################################################################################################
+
+
+	x2=[]
+	y2=[]
+	for i in range(0,len(topTradesFinal['Tenor'])):
+		x2.append(randint(-1,1))
+		y2.append(randint(-1,1))
+	sgn=zip(x2,y2)
+	i=0
+	for aa,x,y,s in zip(topTradesFinal['Tenor'],topTradesFinal['Corr_PC1'],topTradesFinal['Corr_PC2'],topTradesFinal['bubblesizeNormal']):    
+		mult=0.1 if s>500 else 0.5    
+		x1=sgn[i][0]*(1.0+mult*sqrt(s))
+		y1=sgn[i][1]*(1.0+mult*sqrt(s))
+		i=i+1			
+		axes2.annotate(aa,xy=(x,y),xytext=(x1, y1),textcoords='offset points',fontsize=9)
