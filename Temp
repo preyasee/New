@@ -43,3 +43,20 @@ ind
 vv1.P[vv1.P>0].idxmin()
 vv1.apply(lambda x:x.Temp-vv1.P[vv1.P>0].idxmin(),axis=1)
 vv1.drop('Q',1)
+
+
+#############################################################################
+ci=0
+vv1=vv1.sort(ci)
+vv1['temp']=range(0,len(vv1[ci]))
+vv1=vv1.set_index('temp')
+max1=vv1[ci].idxmax()
+min1=vv1[ci].idxmin()
+idxref=max1 if vv1[ci].max()<0 else min1 if vv1[ci].min()>0 else vv1[ci][vv1[ci]>0].idxmin()
+P=[]
+for i,row in enumerate(vv1.values):
+    col0,col2,col4,col6=row
+    p=(i-idxref if (col0<0 and vv1[ci].max()>0) else i-idxref+1 if col0>0 else i-idxref-1)
+    P.append(p)
+vv1['P']=P    
+#########################################################################################################
